@@ -1,0 +1,30 @@
+.loader-icon {
+    background-image: url("logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    width: 60vw;
+    height: calc(60vw * 0.8467);
+
+    max-width: 300px;
+    max-height: calc(300px * 0.8467);
+    margin: auto;
+
+    animation: breath 3s linear infinite;
+}
+
+@keyframes breath {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+

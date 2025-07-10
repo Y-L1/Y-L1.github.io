@@ -1,125 +1,146 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
+
 <head>
-    <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>welcome to my world</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <link rel="stylesheet" href="Loader/styles.css">
+  <link rel="stylesheet" href="Loader/input-styles.css">
+  <link rel="stylesheet" href="Loader/loader-styles.css">
+  <title>Luxe Leap</title>
 </head>
-<link rel="stylesheet" type="text/css" href="static/css/index.css"/>
-<!-- 引入JQuery -->
-<script src="static/js/jquery.min.js"></script>
-<!-- 鼠标点击特效 -->
-<script src="static/js/click-fun.js"></script>
 
-
-<body onclick="click_fun(event)">
-    <nav>
-        <div class="header-fixed">
-            <div class="nav-logo fleft"><span style="line-height: 60px;">为你筑梦</span></div>
-            <div class="nav-menubar fright">
-                <ul id="nav-list">
-                    <li class="current"><a href="#">首页</a></li>
-                    <li><a href="#">博客</a></li>
-                    <li><a href="#">时光轴</a></li>
-                    <li><a href="#">留言板</a></li>
-                    <li><a href="#">友人帐</a></li>
-                    <li><a href="#">关于</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="part_1">
-        <div class="part_1_title">
-            <div class="inner">
-                <h1>圣诞快乐</h1>
-            </div>
-            <div class="title">
-                <p>心之所向，素履可往</p>
-                <p>生如逆旅，一苇以航</p>
-            </div>
-        </div>
-        <div class="guide">
-            <a href="javascript:void(0);">
-                <span class="down">
-                    <!-- svg矢量图 -->
-                    <svg viewBox="0 0 1792 1024" width="16" height="16">
-                        <path d="M21.824 126.208L834.624 998.656a92.672 92.672 0 0 0 126.976 0L1770.304 126.208C1819.2 77.568 1780.544 0 1706.816 0H85.312C11.84 0-27.328 77.312 21.824 126.208z" fill="#ffffff" p-id="3369"></path>
-                    </svg>
-                </span>
-            </a>
-        </div>
+<body style="text-align: center; padding: 0; border: 0; margin: 0;">
+  <canvas id="unity-canvas" width=100vw height=100vh tabindex="-1"
+    style="width: 100vw; height: 100vh; background: #1f1f1f"></canvas>
+  <div id="loading-node" class="loading-container">
+    <div class="loader-icon"></div>
+    <!-- <div class="loading-text">
+        <span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+      </div> -->
+    <div id="loading-bar" class="loading-bar">
+      <div class="white-bars-container">
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+        <div class="white-bar"></div>
+      </div>
+      <div id="percentage-text" class="percentage">0</div>
     </div>
-    <div class="part_2">
-        <div class="container">
-            <div class="brief_major">
-                — 欢迎走进我的世界 —
-            </div>
-            <div class="brief_paragraph">
-                <p>对于曾经，每个人的记忆中，都会有一些无法忘记的片段。</p>
-                <p>曾经的年少轻狂，给我们的青春留下了太多美好的回忆，但也有些许无奈，让我们久久难以释怀。</p>
-                <p>那时的自己，真的很单纯，也真的很勇敢。或许这就是青春原本的样子，不完美，却很真实</p>
-                <p>但无论怎样，过去了的，都无法再重来，我们只能往前走，只能向前看。</p>
-            </div>
-<!--            <div class="brief_url">-->
-<!--                <a href="javascript:void(0);">About me</a>-->
-<!--            </div>-->
-        </div>
+    <div style="height: 15vh"></div>
+  </div>
+  <div id="overlay" class="overlay">
+    <div class="modal">
+      <div class="modal-text">TYPE HERE:</div>
+      <input class="input" type="text" id="userInput" placeholder="">
+      <div class="button-area">
+        <button class="button-cancel" onclick="closeModal()">Cancel</button>
+        <button class="button-done" onclick="confirmInput()">Done</button>
+      </div>
     </div>
-    <div class="part_3">
-            <div class="container">
-<!--                <div class="brief_major">-->
-<!--                    — 自娱自乐 —-->
-<!--                </div>-->
-                <div class="list">
-                    <ul>
-                        <li>
-                            <figcaption>
-<!--                                <figcaption><a href="http://47.116.130.99:20548/" target="_blank">MOJ在线评测系统</a></figcaption>-->
-                                <img src="static/images/00.png" width="100%" height="100%" />
-                            </figcaption>
-                        </li>
-                        <li>
-                            <figcaption>
-<!--                                <figcaption><a href="static/files/snake-ai.exe" target="_blank">贪吃蛇AI</a></figcaption>-->
-                                <img src="static/images/01.png" width="100%" height="100%" />
-                            </figcaption>
-                        </li>
-                        <li>
-                            <figcaption>
-<!--                                <figcaption><a href="static/files/pintu.html" target="_blank">拼图游戏</a></figcaption>-->
-                                <img src="static/images/04.png" width="100%" height="100%" />
-                            </figcaption>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-    </div>
-    <footer>
-        <div class="container">
-            <div class="more"></div>
-            <div class="copyright">Copyright © 2019-2021 为你筑梦</div>
-        </div>
-    </footer>
-
-    <!-- 背景雪花特效 -->
-    <script src="static/js/snowflakes.min.js"></script>
-    <script src="static/js/snow_load.js"></script>
-    <!-- index.js -->
-    <script>
-        // 原生js写法
-        window.onload = function(){
-            // 设置点击nav-list的样式
-            let navUl = document.getElementById("nav-list");
-            let navLi = navUl.getElementsByTagName("li");
-            for(let index = 0; index < navLi.length; index++){
-                navLi[index].onclick = function(){
-                    for(let i = 0; i < navLi.length; i++){
-                        navLi[i].className = "";
-                    }
-                    this.className = "current";
-                };
-            }
+  </div>
+  <script id="loader-script" src="Build/build.loader.js"></script>
+  <script>
+    var unityInstance = null;
+    function closeModal() {
+      document.getElementById('overlay').style.display = 'none';
+      try {
+        if (unityInstance) {
+          unityInstance.SendMessage("BrowserInputReceiver", "OnEndInput");
         }
-    </script>
+      } catch (error) {
+      }
+    }
+
+    function confirmInput() {
+      try {
+        if (unityInstance) {
+          const inputField = document.getElementById('userInput');
+          const inputValue = inputField.value;
+          unityInstance.SendMessage("BrowserInputReceiver", "OnInputReceived", inputValue);
+          inputField.value = "";
+        } else {
+          console.warn("Failed to retrive input, unity instance is null.");
+        }
+      } catch (error) {
+      }
+
+      closeModal();
+    }
+
+    const onFinished = () => {
+      console.log("Telegram sdk loaded.");
+      console.log("Setting to fullscreen.");
+      Telegram.WebApp.expand();
+    };
+
+    if (!window.Telegram) {
+      var script = document.createElement("script");
+      script.src = "https://telegram.org/js/telegram-web-app.js";
+      script.onload = function () {
+        if (typeof Telegram !== "undefined") {
+          Telegram.WebApp.ready();
+
+          onFinished();
+        }
+      };
+
+      document.head.appendChild(script);
+    } else {
+      Telegram.WebApp.ready();
+      onFinished();
+    }
+
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      var meta = document.createElement('meta');
+      meta.name = 'viewport';
+      meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+      document.getElementsByTagName('head')[0].appendChild(meta);
+    }
+    document.body.style.textAlign = "left";
+
+    var canvas = document.querySelector("#unity-canvas");
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+    canvas.style.position = "fixed";
+
+    let loadingNode = document.querySelector("#loading-node");
+    let loadingBar = document.querySelector("#loading-bar");
+    let loadingText = document.querySelector("#percentage-text");
+    loadingBar.style.display = isMobile ? "flex" : "none";
+    const onProgress = (progress) => {
+      let realProgress = Math.min(progress + 0.1, 1);
+      loadingBar.style.width = 100 * realProgress + "%";
+      loadingText.textContent = Math.round(100 * realProgress);
+    };
+
+    if (isMobile) {
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        arguments: [],
+        dataUrl: "Build/build.data",
+        frameworkUrl: "Build/build.framework.js",
+        codeUrl: "Build/build.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Paradow",
+        productName: "LuxeLeap",
+        productVersion: "0.1.0",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      }, onProgress).then((instance) => {
+        unityInstance = instance;
+        loadingNode.style.display = "None";
+        console.log("Unity loaded. Instance: " + unityInstance !== null);
+      });
+    }
+  </script>
 </body>
+
 </html>
